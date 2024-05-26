@@ -42,5 +42,3 @@ const emailData = {
     text: "Hola mundo",
     template: "HelloWorld",
 };
-
-sendMail(emailData)
