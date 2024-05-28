@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const pug = require("pug");
 require("dotenv").config();
 
 const transporter = nodemailer.createTransport({
@@ -9,15 +10,21 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-const template = {
-    helloworld: '<p>Prueba whit dotenv</p>'
-};
+const compileFunction = pug.compileFile("./templates/template.pug");
 
 async function sendMail(data) {
+
+    const template = {
+        helloworld: compileFunction({
+            name: data.name
+        })
+    };
+
     try {
         let mailOptions = {
             from: "pruebas.dieguito@gmail.com",
             to: data.mail,
+            name: data.name,
             subject: data.subject,
             text: data.text,
             html: template.helloworld
