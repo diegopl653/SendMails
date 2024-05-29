@@ -16,7 +16,9 @@ async function sendMail(data) {
 
     const template = {
         helloworld: compileFunction({
-            name: data.name
+            name: data.name,
+            business: data.business,
+            url: data.url,
         })
     };
 

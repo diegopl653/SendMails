@@ -75,9 +75,10 @@ html
                 span.red o
                 span.black m
                 span.red e
-            p Bienvenido #{name} a mi pagina Web 
+            p Bienvenido #{name} a mi #{business} 
             p We are so happy to have you on board.
             p With this email you can access to our services 
             p Thanks for your time :D
             br
-            button.button Login
+            a(href=`${url}`)
+                button.button(type="button") Login
